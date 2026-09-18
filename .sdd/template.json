@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 2,
+  "template": "codex-sdd-wrapper",
+  "templateVersion": "0.2.0",
+  "profile": "desktop",
+  "openspecVersion": "1.13.1",
+  "shadcnVueCliVersion": "2.8.2",
+  "checkedAt": "2026-09-18"
+}
