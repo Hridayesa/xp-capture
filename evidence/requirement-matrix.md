@@ -1,4 +1,6 @@
-# Requirement → evidence: `establish-opencv-tauri-runtime`
+# Requirement → evidence
+
+## `establish-opencv-tauri-runtime`
 
 | Requirement | Positive evidence | Negative/boundary evidence |
 | --- | --- | --- |
@@ -6,9 +8,25 @@
 | Закреплённый application toolchain | `bun install --frozen-lockfile` — no changes; `package.json`, `bun.lock`, `Cargo.toml`, `Cargo.lock`, `rust-toolchain.toml`; `bun run test` прошёл. | Frozen install не допускает изменение lockfile; package scripts возвращают non-zero при failure. |
 | Проверяемый runtime manifest | `runtime/manifest.json`: 15 exact x64 DLL, включая 4 app-local VC runtime; `bun run test:runtime-supply`; `runtime-imports.json`. | Schema fixtures: wildcard/hash/architecture/license; controlled source hash mismatch; unlisted staging cleanup; unresolved import и отсутствующий app-local `MSVCP140_2.dll`. |
 | Общая самопроверка runtime | Rust unit tests; real OpenCV integration test; installed `headless_self_check` stage в `bundle-verification.json`. | Typed exit-code branches `10`–`14`, `20`; missing backend/JPEG/writer/count/module failures; CLI сохраняет report без GUI. |
-| Diagnostic UI без камеры | 14 frontend tests входят в общий набор 19 Vitest tests; `camera-independent-gui.json`; installed `gui_smoke` stage passed. | Safe native error/retry tests; пустой diagnostics permission list; config test запрещает расширение capability; production code не открывает camera device. |
+| Diagnostic UI без камеры | Self-check regression scenarios входят в общий набор 31 Vitest tests (5 test files); `camera-independent-gui.json`; installed `gui_smoke` stage passed. | Safe native error/retry tests; пустой diagnostics permission list; config test запрещает расширение capability; production code не открывает camera device. |
 | Самодостаточный Windows installer | `tauri-build-environment.json` фиксирует `STATIC_VCRUNTIME=true`, target `x86_64-pc-windows-msvc`, Tauri `2.11.5`/CLI `2.11.4`; один x64 NSIS artifact; current-user/offline config test. | Pre-bundle import validation fail-closed; неподдерживаемые `staticVCRuntime`/`bundleVCRuntime` поля отсутствуют. |
 | Проверка установленного приложения | `bundle-verification.json`: `manifest`, `install`, `headless_self_check`, `module_provenance`, `gui_smoke`, `uninstall` — passed; 15 loaded module paths/hashes; installer/executable hashes. | Rust test отклоняет build-tree module; verifier сохранял partial failing evidence на provenance/uninstall mismatch; policy tests не позволяют объявить pass при failed `module_provenance`, `gui_smoke` или `uninstall`. |
 | Evidence и совместимость | `environment-summary.json`, `runtime-imports.json`, `bundle-verification.json`, этот matrix; README содержит точные команды, storage, troubleshooting и cleanup. | Evidence schemas не содержат full environment dumps/secrets; installers, AVI, staged DLL и detailed artifacts игнорируются; unsupported host завершается на prerequisite gate. |
 
 Итоговая воспроизводимая последовательность 2026-09-19: `./tools/bootstrap-opencv.ps1` → `bun install --frozen-lockfile` → `bun run test` → `bun run app:build` → `bun run verify:bundle`. Все команды завершились успешно после разрешения сетевого скачивания CMake 4.4.0, требуемого pinned vcpkg tool; native OpenCV остался `4.12.0#7`.
+
+## `opencv-camera-session`
+
+| Requirement | Positive evidence | Negative / boundary evidence |
+| --- | --- | --- |
+| Валидируемый ограниченный scan | Rust policy/transport tests: defaults, ordered backends, accepted generation; `camera-session-smoke.json` фиксирует фактическую policy `0..=5`, MSMF/DSHOW и deadlines. | Reversed/oversized range, empty/duplicate/unknown backend, zero/oversized/inconsistent duration и unknown schema/field; invalid request не увеличивает generation. |
+| Последовательное обнаружение endpoints | Scripted adapter tests подтверждают `available`, `open_failed`, `first_frame_timeout`, `read_failed`, ordered outcomes, checked release и максимум один active session. | Empty-frame timeout продолжает следующий probe; no-camera даёт `completed`/empty, release failure не выдаёт ложный cleanup. |
+| Эфемерная identity | Generation и process-local `operationId`/`DeviceEndpointKey` tests; одинаковый index MSMF/DSHOW создаёт независимые keys. | Новый service начинает с generation 1 и не переиспользует operation identity; accepted rescan очищает UI selection. |
+| Единственная operation и state machine | Service tests: normal completion, `BUSY`, partial/no-camera results, operation timeout, `Faulted -> Idle`, idempotent stop. | Concurrent start не создаёт второй worker; generation overflow типизирован; snapshot access не удерживает lock во время native work. |
+| Cancellation, deadlines и честный `Stuck` | Cancellation между probes и terminal-idempotency; fake-time watchdog test; app `ExitRequested` вызывает тот же `stop` path. | Blocked read становится sticky `Stuck`; новый scan запрещён, late return не восстанавливает `Idle`, join ownership остаётся у service. |
+| Versioned Tauri transport и безопасные ошибки | Serde round-trip и command/service contract tests; TS strict runtime decoders и single-in-flight polling tests. | Unknown fields/schema/error code управляемы; native marker/source/path отсутствуют в public JSON; raw frame не входит в DTO. |
+| Camera UI без автоматического доступа | Component tests: idle, scanning/progress, completed, no-camera, cancel, independent MSMF/DSHOW selection, rescan invalidation, `Stuck`, live status. | Mount, self-check и self-check retry не вызывают camera commands; concurrent start/retry в `Stuck` disabled; raw error marker не отображается. |
+| Совместимость и security boundary | Existing headless/self-check/UI tests; `security_config` подтверждает один managed service и четыре commands. | Capability permissions остаются пустыми, CSP не содержит external origins, persistence/миграции не добавлены. |
+| Hardware/no-camera evidence | `evidence/camera-session-smoke.json`: camera-present Windows host, два completed run MSMF+DSHOW `0..=5`, 12/12 outcomes в каждом, generation `1 -> 2`; `DSHOW / index 0` получил первый кадр и остался `available` после release/reopen. | `MSMF / index 0` в обоих run дал `first_frame_timeout`, остальные tuples — `open_failed`; управляемые partial/no-camera paths дополнительно подтверждены scripted tests без global failure. |
+
+Decision gate `Stuck`: deterministic fake-time test подтверждает sticky state и отсутствие unsafe recovery. Реальный camera-present smoke не обнаружил невосстанавливаемый stall и подтвердил open/read/release/reopen через DSHOW; оснований вводить helper process/native capture в рамках этого change нет.

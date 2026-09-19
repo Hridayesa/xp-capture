@@ -3,6 +3,7 @@ name = "xp-capture"
 version = "0.1.0"
 description = "XP Capture OpenCV runtime diagnostics"
 authors = ["XP Capture contributors"]
+default-run = "xp-capture"
 edition = "2024"
 rust-version = "1.98.1"
 

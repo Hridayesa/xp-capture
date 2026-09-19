@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUnixSeconds": 1789781009,
+  "generatedAtUnixSeconds": 1789785718,
   "target": "x86_64-pc-windows-msvc",
   "tauriCrate": "2.11.5",
   "tauriCli": "2.11.4",

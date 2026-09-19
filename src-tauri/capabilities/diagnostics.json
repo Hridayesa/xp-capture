@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "diagnostics",
-  "description": "Minimal capability for the camera-independent runtime diagnostic screen.",
+  "description": "Minimal capability for runtime diagnostics and explicit camera scan commands.",
   "windows": ["main"],
   "permissions": []
 }

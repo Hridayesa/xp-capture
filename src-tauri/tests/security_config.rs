@@ -2,6 +2,7 @@ use serde_json::Value;
 
 const CAPABILITY: &str = include_str!("../capabilities/diagnostics.json");
 const CONFIG: &str = include_str!("../tauri.conf.json");
+const APPLICATION_SOURCE: &str = include_str!("../src/lib.rs");
 
 #[test]
 fn diagnostic_capability_has_no_unplanned_permissions() {
@@ -47,4 +48,20 @@ fn windows_bundle_is_current_user_offline_nsis_with_manifest_staging() {
     );
     assert!(config["build"].get("staticVCRuntime").is_none());
     assert!(config["bundle"]["windows"].get("bundleVCRuntime").is_none());
+}
+
+#[test]
+fn camera_commands_use_one_managed_service_and_shutdown_uses_stop_path() {
+    assert!(APPLICATION_SOURCE.contains(".manage(camera_service)"));
+    for command in [
+        "start_device_scan",
+        "get_device_scan",
+        "cancel_device_scan",
+        "stop_camera",
+    ] {
+        assert!(APPLICATION_SOURCE.contains(command));
+    }
+    assert!(APPLICATION_SOURCE.contains("tauri::RunEvent::ExitRequested"));
+    assert!(APPLICATION_SOURCE.contains("service.stop()"));
+    assert!(!APPLICATION_SOURCE.contains("VideoCapture"));
 }

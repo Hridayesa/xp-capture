@@ -1,6 +1,6 @@
 # XP Capture runtime foundation
 
-Первый change проекта проверяет воспроизводимый Windows runtime для Tauri 2 и dynamic OpenCV до реализации camera pipeline. Приложение предоставляет один Rust self-check через headless CLI и diagnostic GUI; камера не открывается и camera permission не требуется.
+Приложение предоставляет camera-independent Rust self-check через headless CLI и diagnostic GUI, а также отдельный явный bounded scan OpenCV camera endpoints. Startup и self-check не открывают камеру: camera access начинается только после действия «Начать scan» либо запуска opt-in hardware smoke.
 
 ## Зафиксированный контракт
 
@@ -63,6 +63,43 @@ bun run app:dev
 
 Проверки: `opencv_load`, `image_codec`, `writer_open`, `writer_backend`, `writer_roundtrip`. VideoWriter использует synthetic 30-frame `320x240` MJPG/AVI через `CAP_FFMPEG`; камера не открывается.
 
+## Camera session scan
+
+Diagnostic UI запускает только один последовательный scan. Defaults transport v1:
+
+| Поле | Default | Hard limit / правило |
+| --- | ---: | --- |
+| `first_index` / `last_index` | `0..=5` | не более 32 indices и 64 total probes |
+| `backends` | `[MSMF, DSHOW]` | непустой ordered набор без duplicates; `CAP_ANY` запрещён |
+| `first_frame_deadline_ms` | `5000` | `1..=600000` |
+| `operation_deadline_ms` | `90000` | `1..=600000`, больше first-frame deadline |
+| `shutdown_deadline_ms` | `3000` | `1..=600000`, не больше operation deadline |
+| `reopen_delay_ms` | `500` | `1..=600000` после подтверждённого release |
+
+Каждый tuple `(backend, numericIndex)` открывается отдельно через явный `CAP_MSMF` или `CAP_DSHOW`. Endpoint публикуется только после первого непустого frame и checked `release()`. Один numeric index через два backend — два независимых endpoint; `DeviceEndpointKey`, display name и numeric index эфемерны и не должны сохраняться или трактоваться как стабильный Windows device ID.
+
+Tauri transport v1 предоставляет команды `start_device_scan`, `get_device_scan`, `cancel_device_scan` и `stop_camera`. Стабильные public error codes: `INVALID_CONFIG`, `BUSY`, `STALE_SCAN_OPERATION`, `OPEN_FAILED`, `READ_TIMEOUT`, `READ_STALLED`, `CANCELLED`, `INTERNAL`. DTO не содержат frame bytes, OpenCV diagnostics, paths или internal source chain.
+
+### Opt-in hardware smoke
+
+Hardware smoke не входит в `bun run test`. Сначала явно проверьте, есть ли на host доступная камера, затем укажите соответствующий context и bounded scope:
+
+```powershell
+Get-PnpDevice -Class Camera -PresentOnly
+
+./tools/run-with-opencv.ps1 -- cargo run --locked --bin camera-session-smoke -- `
+  --first-index 0 --last-index 2 `
+  --backends MSMF,DSHOW `
+  --evidence evidence/camera-session-smoke.json `
+  --hardware-context camera-present `
+  --first-frame-deadline-ms 3000 `
+  --operation-deadline-ms 30000 `
+  --shutdown-deadline-ms 3000 `
+  --reopen-delay-ms 250
+```
+
+Для host без present Camera PnP device используйте `--hardware-context camera-less`. Harness выполняет два scan подряд и сохраняет compact schema-versioned evidence с policy, ordered outcomes, generations, release/reopen result и version references. Он не сохраняет frames, secrets или полный environment dump. При `camera-present` отсутствие положительного endpoint в любом из двух run является failing acceptance gate.
+
 ## Локальное хранение и evidence
 
 - `.tools/vcpkg/` — exact vcpkg checkout; `.tools/msvc-redist/` — выбранные из установленного MSVC Redistributable DLL и notice.
@@ -73,6 +110,7 @@ bun run app:dev
 - `evidence/tauri-build-environment.json` — target и effective `STATIC_VCRUNTIME=true`.
 - `evidence/runtime-imports.json` — release PE import closure.
 - `evidence/bundle-verification.json` — installer/executable hashes и этапы `manifest`, `install`, `headless_self_check`, `module_provenance`, `gui_smoke`, `uninstall`.
+- `evidence/camera-session-smoke.json` — opt-in bounded camera/no-camera outcomes и release/reopen evidence.
 - `evidence/artifacts/` — ignored подробные self-check reports; большие installer/AVI не коммитятся.
 
 Обновить и проверить environment evidence:
@@ -91,6 +129,8 @@ bun run validate:environment-evidence
 - `Expected exactly one NSIS artifact`: удалите только старые generated installer artifacts из `target/release/bundle/nsis/` и повторите `bun run app:build`.
 - Failed `module_provenance`: installed app загрузил DLL вне install directory либо hash не совпал; build-tree и global paths не являются допустимым workaround.
 - `gui_smoke` или `uninstall` failure остаётся failing gate; partial evidence сохранено в `evidence/bundle-verification.json`.
+- `READ_STALLED` / состояние `Stuck`: native OpenCV call не вернулся к shutdown deadline. Приложение намеренно не объявляет cleanup успешным, запрещает новый scan и требует restart process; retry в том же process небезопасен.
+- `camera-present context requires positive open/read/reopen evidence`: освободите камеру в других приложениях, проверьте Windows privacy settings и повторите bounded smoke. Не заменяйте этот gate scripted fake-тестом.
 
 ## Cleanup generated data
 

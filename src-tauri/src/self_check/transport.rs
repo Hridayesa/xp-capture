@@ -84,7 +84,25 @@ mod tests {
     use std::path::PathBuf;
 
     use super::{PublicError, SelfCheckTransportReport};
-    use crate::self_check::{AdapterError, LoadedModule, SelfCheckError, SelfCheckReport};
+    use crate::self_check::{
+        AdapterError, CheckCode, CheckResult, CheckStatus, LoadedModule, SelfCheckError,
+        SelfCheckReport,
+    };
+
+    #[test]
+    fn opencv_load_identifier_matches_the_transport_v1_contract() {
+        let mut report = SelfCheckReport::empty();
+        report.checks.push(CheckResult {
+            check: CheckCode::OpenCvLoad,
+            status: CheckStatus::Passed,
+            public_message: None,
+        });
+
+        let value = serde_json::to_value(SelfCheckTransportReport::from(&report))
+            .expect("transport report serializes");
+
+        assert_eq!(value["checks"][0]["check"], "opencv_load");
+    }
 
     #[test]
     fn maps_internal_error_without_leaking_source() {

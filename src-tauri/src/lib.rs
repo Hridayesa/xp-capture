@@ -1,8 +1,15 @@
+pub mod camera;
 mod cli;
 pub mod self_check;
 
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 
+use camera::{
+    CameraPublicErrorV1, CameraService, CameraServiceSnapshotV1, DeviceScanSnapshotV1,
+    DeviceScanStartedV1, OpenCvCaptureAdapterFactory, cancel_device_scan_for, get_device_scan_for,
+    start_device_scan_for, stop_camera_for,
+};
 use cli::{StartupMode, parse_startup_mode};
 use self_check::{
     AtomicFileSystemAdapter, OpenCvRuntimeAdapter, PublicError, RuntimeManifest, SelfCheckService,
@@ -24,16 +31,33 @@ pub fn run() -> i32 {
 }
 
 fn run_gui() -> i32 {
-    match tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![run_self_check])
-        .run(tauri::generate_context!())
+    let camera_service = CameraService::new(Arc::new(OpenCvCaptureAdapterFactory::new()));
+    let application = match tauri::Builder::default()
+        .manage(camera_service)
+        .invoke_handler(tauri::generate_handler![
+            run_self_check,
+            start_device_scan,
+            get_device_scan,
+            cancel_device_scan,
+            stop_camera
+        ])
+        .build(tauri::generate_context!())
     {
-        Ok(()) => 0,
+        Ok(application) => application,
         Err(error) => {
             eprintln!("failed to run Tauri application: {error}");
-            20
+            return 20;
         }
-    }
+    };
+    application.run(|application, event| {
+        if matches!(event, tauri::RunEvent::ExitRequested { .. }) {
+            let service = tauri::Manager::state::<CameraService>(application);
+            if let Err(error) = service.stop() {
+                eprintln!("camera_shutdown phase failed: {error}");
+            }
+        }
+    });
+    0
 }
 
 fn run_headless(report_path: &Path) -> i32 {
@@ -53,6 +77,43 @@ async fn run_self_check() -> Result<SelfCheckTransportReport, PublicError> {
     })
     .await
     .map_err(|_| PublicError::internal())?
+}
+
+#[tauri::command]
+fn start_device_scan(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<DeviceScanStartedV1, CameraPublicErrorV1> {
+    start_device_scan_for(service.inner(), request_v1)
+}
+
+#[tauri::command]
+fn get_device_scan(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<DeviceScanSnapshotV1, CameraPublicErrorV1> {
+    get_device_scan_for(service.inner(), request_v1)
+}
+
+#[tauri::command]
+async fn cancel_device_scan(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<DeviceScanSnapshotV1, CameraPublicErrorV1> {
+    let service = service.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || cancel_device_scan_for(&service, request_v1))
+        .await
+        .map_err(|_| CameraPublicErrorV1::from(&camera::CameraServiceError::WorkerPanicked))?
+}
+
+#[tauri::command]
+async fn stop_camera(
+    service: tauri::State<'_, CameraService>,
+) -> Result<CameraServiceSnapshotV1, CameraPublicErrorV1> {
+    let service = service.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || stop_camera_for(&service))
+        .await
+        .map_err(|_| CameraPublicErrorV1::from(&camera::CameraServiceError::WorkerPanicked))?
 }
 
 fn build_self_check_service() -> Result<

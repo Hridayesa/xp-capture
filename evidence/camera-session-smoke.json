@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "opencv-camera-session-smoke",
+  "policy": {
+    "first_index": 0,
+    "last_index": 5,
+    "backends": [
+      "MSMF",
+      "DSHOW"
+    ],
+    "first_frame_deadline_ms": 5000,
+    "operation_deadline_ms": 90000,
+    "shutdown_deadline_ms": 3000,
+    "reopen_delay_ms": 500
+  },
+  "runs": [
+    {
+      "schema_version": 1,
+      "operation_id": "scan-0000000000000001-0000000000000001",
+      "scan_generation": 1,
+      "policy": {
+        "first_index": 0,
+        "last_index": 5,
+        "backends": [
+          "MSMF",
+          "DSHOW"
+        ],
+        "first_frame_deadline_ms": 5000,
+        "operation_deadline_ms": 90000,
+        "shutdown_deadline_ms": 3000,
+        "reopen_delay_ms": 500
+      },
+      "service_state": "idle",
+      "status": "completed",
+      "completed_probes": 12,
+      "total_probes": 12,
+      "current_probe": null,
+      "outcomes": [
+        {
+          "backend": "MSMF",
+          "numeric_index": 0,
+          "status": "first_frame_timeout"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 1,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 2,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 3,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 4,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 5,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 0,
+          "status": "available"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 1,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 2,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 3,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 4,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 5,
+          "status": "open_failed"
+        }
+      ],
+      "endpoints": [
+        {
+          "endpoint_key": "endpoint-0000000000000001-0000000000000001-dshow-0",
+          "scan_generation": 1,
+          "backend": "DSHOW",
+          "numeric_index": 0,
+          "display_name": "Camera 0 / DSHOW"
+        }
+      ],
+      "failure_code": null
+    },
+    {
+      "schema_version": 1,
+      "operation_id": "scan-0000000000000001-0000000000000002",
+      "scan_generation": 2,
+      "policy": {
+        "first_index": 0,
+        "last_index": 5,
+        "backends": [
+          "MSMF",
+          "DSHOW"
+        ],
+        "first_frame_deadline_ms": 5000,
+        "operation_deadline_ms": 90000,
+        "shutdown_deadline_ms": 3000,
+        "reopen_delay_ms": 500
+      },
+      "service_state": "idle",
+      "status": "completed",
+      "completed_probes": 12,
+      "total_probes": 12,
+      "current_probe": null,
+      "outcomes": [
+        {
+          "backend": "MSMF",
+          "numeric_index": 0,
+          "status": "first_frame_timeout"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 1,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 2,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 3,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 4,
+          "status": "open_failed"
+        },
+        {
+          "backend": "MSMF",
+          "numeric_index": 5,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 0,
+          "status": "available"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 1,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 2,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 3,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 4,
+          "status": "open_failed"
+        },
+        {
+          "backend": "DSHOW",
+          "numeric_index": 5,
+          "status": "open_failed"
+        }
+      ],
+      "endpoints": [
+        {
+          "endpoint_key": "endpoint-0000000000000001-0000000000000002-dshow-0",
+          "scan_generation": 2,
+          "backend": "DSHOW",
+          "numeric_index": 0,
+          "display_name": "Camera 0 / DSHOW"
+        }
+      ],
+      "failure_code": null
+    }
+  ],
+  "release_reopen": {
+    "first_scan_completed": true,
+    "second_scan_completed": true,
+    "generation_incremented": true,
+    "first_scan_found_endpoint": true,
+    "second_scan_found_endpoint": true
+  },
+  "hardware_context": "camera_present",
+  "no_camera_validation": {
+    "real_scan_completed_empty": false,
+    "repeated_scan_completed_empty": false,
+    "scripted_test_reference": "camera::service::tests::no_camera_is_a_successful_empty_result"
+  },
+  "environment_versions": {
+    "application": "0.1.0",
+    "opencv": "4.12.0",
+    "opencv_rust_crate": "0.100.1",
+    "target_os": "windows",
+    "target_arch": "x86_64"
+  }
+}

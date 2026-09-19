@@ -33,8 +33,22 @@ button:focus-visible {
 }
 
 button:disabled {
-  cursor: wait;
+  cursor: not-allowed;
   opacity: 0.65;
+}
+
+input {
+  border: 1px solid #b8c6d1;
+  border-radius: 0.45rem;
+  padding: 0.55rem 0.65rem;
+  color: inherit;
+  background: white;
+  font: inherit;
+}
+
+input:focus-visible {
+  outline: 3px solid #7cc4ff;
+  outline-offset: 1px;
 }
 
 main {
@@ -151,6 +165,121 @@ h1 {
   background: #fff2c7;
 }
 
+.camera-diagnostics {
+  margin-top: 1.25rem;
+}
+
+.scan-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.range-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.range-fields label {
+  display: grid;
+  gap: 0.4rem;
+  color: #33424d;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.25rem;
+  margin: 0;
+  border: 1px solid #d7e0e7;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1rem 1rem;
+}
+
+fieldset legend {
+  padding: 0 0.35rem;
+  color: #52616b;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.button-secondary {
+  color: #23435a;
+  background: #e5eef4;
+}
+
+.restart-required {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  border: 1px solid #d28d37;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  color: #633b08;
+  background: #fff4df;
+}
+
+.endpoint-list {
+  display: grid;
+  margin-top: 1rem;
+}
+
+.endpoint-list label {
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  padding: 0.45rem;
+}
+
+.endpoint-list label:has(input:checked) {
+  background: #eaf4fb;
+}
+
+.endpoint-list span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.endpoint-list small {
+  color: #52616b;
+}
+
+.outcome-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.outcome-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #e2e8ed;
+  padding: 0.55rem 0;
+  font-size: 0.88rem;
+}
+
+.outcome-list strong {
+  color: #52616b;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
 @media (max-width: 34rem) {
   .section-heading,
   .check-list li {
@@ -160,6 +289,14 @@ h1 {
 
   button {
     width: 100%;
+  }
+
+  .range-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .button-row {
+    flex-direction: column;
   }
 
   .status {

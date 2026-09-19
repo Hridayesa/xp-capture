@@ -15,6 +15,7 @@ pub enum CheckStatus {
 #[derive(Clone, Copy, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum CheckCode {
+    #[serde(rename = "opencv_load")]
     OpenCvLoad,
     ImageCodec,
     WriterOpen,
