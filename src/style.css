@@ -280,6 +280,49 @@ fieldset label {
   text-transform: uppercase;
 }
 
+.profile-diagnostics {
+  margin-top: 1.25rem;
+}
+
+.profile-diagnostics fieldset {
+  display: grid;
+}
+
+.profile-diagnostics fieldset p {
+  margin: 0;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+caption {
+  padding-bottom: 0.5rem;
+  text-align: left;
+  font-weight: 800;
+}
+
+th,
+td {
+  border-bottom: 1px solid #d7e0e7;
+  padding: 0.55rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+td small {
+  display: block;
+  margin-top: 0.25rem;
+  color: #6b2630;
+}
+
 @media (max-width: 34rem) {
   .section-heading,
   .check-list li {

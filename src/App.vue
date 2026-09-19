@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref } from "vue";
+import ProfileSection from "./components/ProfileSection.vue";
 
 import {
   CameraClientError,
@@ -40,6 +41,8 @@ const cameraSnapshot = ref<DeviceScanSnapshotV1 | null>(null);
 const cameraError = ref<string | null>(null);
 const operationId = ref<string | null>(null);
 const selectedEndpointKey = ref<string | null>(null);
+const profileBusy = ref(false);
+const profileResetToken = ref(0);
 const polling = new CameraPollingController();
 
 const cameraScanning = computed(
@@ -56,6 +59,7 @@ const canStartCameraScan = computed(
     !cameraCancelling.value &&
     !cameraScanning.value &&
     !cameraStuck.value &&
+    !profileBusy.value &&
     selectedBackends.value.length > 0 &&
     firstIndex.value >= 0 &&
     lastIndex.value >= firstIndex.value &&
@@ -90,6 +94,9 @@ const cameraStatusText = computed(() => {
   }
   return "Camera scan завершился безопасной ошибкой.";
 });
+const selectedEndpoint = computed(
+  () => cameraSnapshot.value?.endpoints.find((endpoint) => endpoint.endpoint_key === selectedEndpointKey.value) ?? null,
+);
 
 async function startSelfCheck(): Promise<void> {
   loading.value = true;
@@ -121,6 +128,7 @@ async function startCameraScan(): Promise<void> {
       backends: [...selectedBackends.value],
     });
     selectedEndpointKey.value = null;
+    profileResetToken.value += 1;
     operationId.value = started.operation_id;
     cameraSnapshot.value = null;
     polling.start(
@@ -248,7 +256,7 @@ onBeforeUnmount(() => {
               type="number"
               min="0"
               max="31"
-              :disabled="cameraScanning || cameraStarting || cameraStuck"
+              :disabled="cameraScanning || cameraStarting || cameraStuck || profileBusy"
             />
           </label>
           <label>
@@ -259,12 +267,12 @@ onBeforeUnmount(() => {
               type="number"
               min="0"
               max="31"
-              :disabled="cameraScanning || cameraStarting || cameraStuck"
+              :disabled="cameraScanning || cameraStarting || cameraStuck || profileBusy"
             />
           </label>
         </div>
 
-        <fieldset :disabled="cameraScanning || cameraStarting || cameraStuck">
+        <fieldset :disabled="cameraScanning || cameraStarting || cameraStuck || profileBusy">
           <legend>Backends и порядок scan</legend>
           <label>
             <input v-model="selectedBackends" type="checkbox" value="MSMF" />
@@ -341,6 +349,7 @@ onBeforeUnmount(() => {
               type="radio"
               name="camera-endpoint"
               :value="endpoint.endpoint_key"
+              :disabled="profileBusy"
             />
             <span>
               <strong>{{ endpoint.display_name }}</strong>
@@ -364,5 +373,11 @@ onBeforeUnmount(() => {
         </ol>
       </template>
     </section>
+    <ProfileSection
+      :endpoint="selectedEndpoint"
+      :scan-busy="cameraScanning || cameraStarting"
+      :reset-token="profileResetToken"
+      @busy-change="profileBusy = $event"
+    />
   </main>
 </template>

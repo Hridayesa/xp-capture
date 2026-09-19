@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-19T03:34:23.5621769+00:00",
+  "generatedAtUtc": "2026-09-19T04:53:05.4988059+00:00",
   "status": "passed",
   "installer": {
     "path": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\bundle\\nsis\\XP Capture_0.1.0_x64-setup.exe",
-    "size": 225365859,
-    "sha256": "c1392367f25c3df15a3d4ed5f0800f15ad8cbe788b8ea7c3c6f1eda61a3244aa"
+    "size": 225497180,
+    "sha256": "db0f78a03346db65ca1e410aad7f0a9a8071da82daf1d907c8c243688f3ead43"
   },
   "installation": {
-    "root": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d",
-    "executable": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\xp-capture.exe",
-    "executableSha256": "5b28a816408ba58c05bbdd845635c28fce6e703635fad2be6182a18e9e112585",
-    "selfCheckReport": "C:\\Work\\js\\xp\\xp-capture\\evidence\\artifacts\\self-check-a77fa1514df04bf6b00f2dbd00ae1d4d.json"
+    "root": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835",
+    "executable": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\xp-capture.exe",
+    "executableSha256": "93d79d95660f984184635604d4775e069e1f2c829f2198653062c95e4dfdd6b3",
+    "selfCheckReport": "C:\\Work\\js\\xp\\xp-capture\\evidence\\artifacts\\self-check-5c8fed96601549b29dbb4f7bf7688835.json"
   },
   "stages": [
     {
@@ -54,77 +54,77 @@
   "loadedModules": [
     {
       "name": "CONCRT140.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\CONCRT140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\CONCRT140.dll",
       "sha256": "8bf82e025265d30fb25fda7161f8e8d73b96f83fde10f95b0fc4887bd6b09b5e"
     },
     {
       "name": "MSVCP140.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\MSVCP140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\MSVCP140.dll",
       "sha256": "8f141b4454fa78db34bc1f28c571b4da0e00cd2c43f7ad0e282f313036826aae"
     },
     {
       "name": "VCRUNTIME140.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\VCRUNTIME140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\VCRUNTIME140.dll",
       "sha256": "0205071c36c17f1efbd70178c852cb7d49985c484202752b8704b7ac6b184e60"
     },
     {
       "name": "VCRUNTIME140_1.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\VCRUNTIME140_1.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\VCRUNTIME140_1.dll",
       "sha256": "963e45edd064545962e216c12d68071ced94dc8e11862a18f07f14eb2690a57c"
     },
     {
       "name": "avcodec-62.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\avcodec-62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\avcodec-62.dll",
       "sha256": "0c1f6530a1a681d9fa49542aeef6c256d86b2981144e6b38a6acae608de56a99"
     },
     {
       "name": "avformat-62.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\avformat-62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\avformat-62.dll",
       "sha256": "28ffff599eb1fa78cf7a355c1f53fea6eee91c20489aa9cddca6a45c271be830"
     },
     {
       "name": "avutil-60.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\avutil-60.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\avutil-60.dll",
       "sha256": "a24bd7a866f0a0a95c9067d24d106a0bef849b92a8188f2f3495e6213390d5db"
     },
     {
       "name": "jpeg62.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\jpeg62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\jpeg62.dll",
       "sha256": "9f1b499bf52ac6bdda31b880ff3b1f5e82ee9fd04e1f2ab802732d3095b31e95"
     },
     {
       "name": "opencv_core4.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\opencv_core4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\opencv_core4.dll",
       "sha256": "3ff7f7f2ad7c5f6d4326cac6a0be3d48dd9ed494fad59433f581bafe164cf540"
     },
     {
       "name": "opencv_imgcodecs4.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\opencv_imgcodecs4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\opencv_imgcodecs4.dll",
       "sha256": "bb5198a3544b16c3a8f65f68745559ccfc6c373639a1b0ddec2c1a00b3f06bdb"
     },
     {
       "name": "opencv_imgproc4.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\opencv_imgproc4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\opencv_imgproc4.dll",
       "sha256": "61e7149513cce0d39e24efcc7ba4fb4b95b86ec1c1c5aa2599d17da2be148641"
     },
     {
       "name": "opencv_videoio4.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\opencv_videoio4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\opencv_videoio4.dll",
       "sha256": "447a1335e52fd743adc7f6bc35f4b7b1ba66d120b88ee440f28780e02d47efca"
     },
     {
       "name": "swresample-6.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\swresample-6.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\swresample-6.dll",
       "sha256": "3c91c861712c9b2e5ceaab9abf87a937ce6849b5f55234c8b6ee6d87183e403f"
     },
     {
       "name": "swscale-9.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\swscale-9.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\swscale-9.dll",
       "sha256": "1c5cd0f72c44a3fbb8da4bb0f4b4f2df6a6937868b49555391bad8217a9d3cd2"
     },
     {
       "name": "z.dll",
-      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\a77fa1514df04bf6b00f2dbd00ae1d4d\\z.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\5c8fed96601549b29dbb4f7bf7688835\\z.dll",
       "sha256": "a756156b8f08c83d064e8448d0fa149519964d8b381e7587280cd6b97faecd4b"
     }
   ]

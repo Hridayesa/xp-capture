@@ -57,6 +57,10 @@ fn camera_commands_use_one_managed_service_and_shutdown_uses_stop_path() {
         "start_device_scan",
         "get_device_scan",
         "cancel_device_scan",
+        "start_profile",
+        "get_profile_status",
+        "get_profile_result",
+        "cancel_profile",
         "stop_camera",
     ] {
         assert!(APPLICATION_SOURCE.contains(command));

@@ -21,10 +21,16 @@ export type CameraPublicErrorCode =
   | "INVALID_CONFIG"
   | "BUSY"
   | "STALE_SCAN_OPERATION"
+  | "STALE_DEVICE_ENDPOINT"
+  | "STALE_PROFILE_OPERATION"
+  | "PROFILE_NOT_READY"
   | "OPEN_FAILED"
   | "READ_TIMEOUT"
   | "READ_STALLED"
   | "CANCELLED"
+  | "STALE_VERIFIED_MODE"
+  | "MODE_COERCED"
+  | "UNDER_TARGET_FPS"
   | "INTERNAL";
 
 export type CameraClientErrorCode =
@@ -127,10 +133,16 @@ const publicErrorCodes = new Set<CameraPublicErrorCode>([
   "INVALID_CONFIG",
   "BUSY",
   "STALE_SCAN_OPERATION",
+  "STALE_DEVICE_ENDPOINT",
+  "STALE_PROFILE_OPERATION",
+  "PROFILE_NOT_READY",
   "OPEN_FAILED",
   "READ_TIMEOUT",
   "READ_STALLED",
   "CANCELLED",
+  "STALE_VERIFIED_MODE",
+  "MODE_COERCED",
+  "UNDER_TARGET_FPS",
   "INTERNAL",
 ]);
 const terminalStatuses = new Set<DeviceScanStatus>([

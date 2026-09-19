@@ -15,6 +15,10 @@ crate-type = ["lib", "cdylib", "staticlib"]
 name = "xp-capture"
 path = "src/main.rs"
 
+[[bin]]
+name = "camera-mode-profile-smoke"
+path = "src/bin/camera-mode-profile-smoke.rs"
+
 [build-dependencies]
 tauri-build = { version = "=2.6.3", features = [] }
 

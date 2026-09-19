@@ -1,11 +1,14 @@
 use std::time::{Duration, Instant};
 
-use crate::camera::{CaptureAdapterResult, ProbeTarget};
+use crate::camera::{
+    CaptureAdapterResult, ProbeTarget,
+    profiling::{FrameMetadata, ModeTuple, PropertySetDiagnostics, ReportedCaptureProperties},
+};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum FrameRead {
     Empty,
-    Frame,
+    Frame(FrameMetadata),
 }
 
 pub enum CaptureOpen {
@@ -14,6 +17,8 @@ pub enum CaptureOpen {
 }
 
 pub trait CaptureSession: Send {
+    fn apply_mode(&mut self, mode: ModeTuple) -> CaptureAdapterResult<PropertySetDiagnostics>;
+    fn reported_properties(&mut self) -> CaptureAdapterResult<ReportedCaptureProperties>;
     fn read(&mut self) -> CaptureAdapterResult<FrameRead>;
     fn release(&mut self) -> CaptureAdapterResult<()>;
 }

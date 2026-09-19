@@ -206,6 +206,8 @@ impl ProbeTarget {
 pub enum CameraServiceState {
     Idle,
     Scanning,
+    Profiling,
+    ProfileReady,
     Faulted,
     Stuck,
 }
@@ -268,7 +270,7 @@ impl OperationId {
 }
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct DeviceEndpointKey(String);
+pub struct DeviceEndpointKey(pub(crate) String);
 
 impl DeviceEndpointKey {
     pub(crate) fn new(service_instance: u64, generation: u64, target: ProbeTarget) -> Self {

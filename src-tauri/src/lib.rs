@@ -7,8 +7,10 @@ use std::sync::Arc;
 
 use camera::{
     CameraPublicErrorV1, CameraService, CameraServiceSnapshotV1, DeviceScanSnapshotV1,
-    DeviceScanStartedV1, OpenCvCaptureAdapterFactory, cancel_device_scan_for, get_device_scan_for,
-    start_device_scan_for, stop_camera_for,
+    DeviceScanStartedV1, OpenCvCaptureAdapterFactory, ProfileProgressV1, ProfileReportV1,
+    ProfileStartedV1, cancel_device_scan_for, cancel_profile_for, get_device_scan_for,
+    get_profile_result_for, get_profile_status_for, start_device_scan_for, start_profile_for,
+    stop_camera_for,
 };
 use cli::{StartupMode, parse_startup_mode};
 use self_check::{
@@ -39,6 +41,10 @@ fn run_gui() -> i32 {
             start_device_scan,
             get_device_scan,
             cancel_device_scan,
+            start_profile,
+            get_profile_status,
+            get_profile_result,
+            cancel_profile,
             stop_camera
         ])
         .build(tauri::generate_context!())
@@ -102,6 +108,41 @@ async fn cancel_device_scan(
 ) -> Result<DeviceScanSnapshotV1, CameraPublicErrorV1> {
     let service = service.inner().clone();
     tauri::async_runtime::spawn_blocking(move || cancel_device_scan_for(&service, request_v1))
+        .await
+        .map_err(|_| CameraPublicErrorV1::from(&camera::CameraServiceError::WorkerPanicked))?
+}
+
+#[tauri::command]
+fn start_profile(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<ProfileStartedV1, CameraPublicErrorV1> {
+    start_profile_for(service.inner(), request_v1)
+}
+
+#[tauri::command]
+fn get_profile_status(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<ProfileProgressV1, CameraPublicErrorV1> {
+    get_profile_status_for(service.inner(), request_v1)
+}
+
+#[tauri::command]
+fn get_profile_result(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<ProfileReportV1, CameraPublicErrorV1> {
+    get_profile_result_for(service.inner(), request_v1)
+}
+
+#[tauri::command]
+async fn cancel_profile(
+    service: tauri::State<'_, CameraService>,
+    request_v1: serde_json::Value,
+) -> Result<ProfileProgressV1, CameraPublicErrorV1> {
+    let service = service.inner().clone();
+    tauri::async_runtime::spawn_blocking(move || cancel_profile_for(&service, request_v1))
         .await
         .map_err(|_| CameraPublicErrorV1::from(&camera::CameraServiceError::WorkerPanicked))?
 }

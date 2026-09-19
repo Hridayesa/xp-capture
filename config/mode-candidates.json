@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "fourcc": ["MJPG", "YUY2"],
+  "resolutions": [
+    { "width": 640, "height": 480 },
+    { "width": 1280, "height": 720 },
+    { "width": 1920, "height": 1080 }
+  ],
+  "fps": [120.0, 60.0, 59.94, 30.0, 29.97],
+  "warmup_ms": 3000,
+  "capture_only_ms": 10000,
+  "first_frame_deadline_ms": 5000,
+  "candidate_deadline_ms": 60000,
+  "operation_deadline_ms": 600000,
+  "shutdown_deadline_ms": 3000,
+  "reopen_delay_ms": 500,
+  "minimum_fps_ratio": 0.95,
+  "maximum_read_failure_ratio": 0.01,
+  "maximum_gap_periods": 5.0,
+  "maximum_long_gap_ratio": 0.01
+}

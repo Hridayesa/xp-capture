@@ -59,7 +59,7 @@ impl OperationControl {
         self.probe_timeout_epoch.store(epoch, Ordering::Release);
     }
 
-    fn probe_timed_out(&self, epoch: u64) -> bool {
+    pub(crate) fn probe_timed_out(&self, epoch: u64) -> bool {
         self.probe_timeout_epoch.load(Ordering::Acquire) == epoch
     }
 }
@@ -178,7 +178,7 @@ fn read_first_frame(
             return ProbeStatus::FirstFrameTimeout;
         }
         match read {
-            Ok(FrameRead::Frame) => return ProbeStatus::Available,
+            Ok(FrameRead::Frame(_)) => return ProbeStatus::Available,
             Err(_) => return ProbeStatus::ReadFailed,
             Ok(FrameRead::Empty) => {
                 context.core.note_progress(context.clock.now());

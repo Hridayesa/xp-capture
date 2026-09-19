@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-19T03:33:10.7128774+00:00",
+  "generatedAtUtc": "2026-09-19T04:51:51.8322198+00:00",
   "status": "passed",
   "executable": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\xp-capture.exe",
   "stagingRoot": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging",
@@ -8,7 +8,7 @@
     {
       "name": "xp-capture.exe",
       "path": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\xp-capture.exe",
-      "sha256": "18572b10b5c3907f9c17cb282f3ac3d2a09281b1d9e22799b57e5080b7f1d47b",
+      "sha256": "91336ed3c34cd74dc7390ef05178a4d63fbcf0dabda720b2113471764794c017",
       "imports": [
         {
           "name": "advapi32.dll",

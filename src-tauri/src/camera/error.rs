@@ -2,6 +2,8 @@ use std::error::Error as StdError;
 
 use thiserror::Error;
 
+use crate::camera::profiling::ProfileConfigError;
+
 #[derive(Debug, Error, Eq, PartialEq)]
 pub enum CameraConfigError {
     #[error("unsupported camera transport schema version")]
@@ -43,6 +45,16 @@ pub enum CaptureAdapterError {
         #[source]
         source: Box<dyn StdError + Send + Sync>,
     },
+    #[error("camera mode apply failed")]
+    Apply {
+        #[source]
+        source: Box<dyn StdError + Send + Sync>,
+    },
+    #[error("camera reported-property query failed")]
+    Get {
+        #[source]
+        source: Box<dyn StdError + Send + Sync>,
+    },
     #[error("camera read failed")]
     Read {
         #[source]
@@ -74,6 +86,18 @@ impl CaptureAdapterError {
         }
     }
 
+    pub fn apply(source: impl StdError + Send + Sync + 'static) -> Self {
+        Self::Apply {
+            source: Box::new(source),
+        }
+    }
+
+    pub fn get(source: impl StdError + Send + Sync + 'static) -> Self {
+        Self::Get {
+            source: Box::new(source),
+        }
+    }
+
     pub fn release(source: impl StdError + Send + Sync + 'static) -> Self {
         Self::Release {
             source: Box::new(source),
@@ -87,12 +111,20 @@ pub type CaptureAdapterResult<T> = Result<T, CaptureAdapterError>;
 pub enum CameraServiceError {
     #[error(transparent)]
     InvalidConfig(#[from] CameraConfigError),
+    #[error(transparent)]
+    InvalidProfileConfig(#[from] ProfileConfigError),
     #[error("camera service is busy")]
     Busy,
     #[error("camera service is stuck and requires process restart")]
     Stuck,
     #[error("camera scan operation is stale")]
     StaleOperation,
+    #[error("camera endpoint is stale")]
+    StaleDeviceEndpoint,
+    #[error("camera profile operation is stale")]
+    StaleProfileOperation,
+    #[error("camera profile result is not ready")]
+    ProfileNotReady,
     #[error("camera scan generation is exhausted")]
     GenerationExhausted,
     #[error("camera worker could not be started")]
@@ -121,11 +153,18 @@ mod tests {
 
     #[test]
     fn adapter_error_preserves_internal_source_chain() {
-        let error = CaptureAdapterError::read(io::Error::other("NATIVE_MARKER"));
-        assert_eq!(
-            error.source().map(ToString::to_string).as_deref(),
-            Some("NATIVE_MARKER")
-        );
+        for error in [
+            CaptureAdapterError::apply(io::Error::other("APPLY_MARKER")),
+            CaptureAdapterError::get(io::Error::other("GET_MARKER")),
+            CaptureAdapterError::read(io::Error::other("READ_MARKER")),
+            CaptureAdapterError::release(io::Error::other("RELEASE_MARKER")),
+        ] {
+            assert!(
+                error
+                    .source()
+                    .is_some_and(|source| source.to_string().ends_with("MARKER"))
+            );
+        }
     }
 
     #[test]

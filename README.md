@@ -80,6 +80,31 @@ Diagnostic UI запускает только один последовател�
 
 Tauri transport v1 предоставляет команды `start_device_scan`, `get_device_scan`, `cancel_device_scan` и `stop_camera`. Стабильные public error codes: `INVALID_CONFIG`, `BUSY`, `STALE_SCAN_OPERATION`, `OPEN_FAILED`, `READ_TIMEOUT`, `READ_STALLED`, `CANCELLED`, `INTERNAL`. DTO не содержат frame bytes, OpenCV diagnostics, paths или internal source chain.
 
+## Camera mode profiling
+
+Profiling запускается только явной кнопкой после выбора endpoint последнего scan. Startup, self-check, scan и выбор radio сами не применяют mode properties. `config/mode-candidates.json` — общий schema v1 source для Rust и Vue:
+
+| Поле | Default | Hard limit / правило |
+| --- | ---: | --- |
+| `fourcc` | `MJPG`, `YUY2` | 1–8 уникальных значений ровно из четырёх ASCII characters |
+| `resolutions` | `640×480`, `1280×720`, `1920×1080` | 1–16 уникальных; каждая dimension `1..=8192` |
+| `fps` | `120`, `60`, `59.94`, `30`, `29.97` | 1–16 уникальных finite значений `0 < FPS <= 1000` |
+| total candidates | 30 | полный ordered product, максимум 256 |
+| `warmup_ms` / `capture_only_ms` | `3000` / `10000` | каждое `1..=600000`; warm-up непрерывно читает frames |
+| `first_frame_deadline_ms` | `5000` | `1..=600000` |
+| `candidate_deadline_ms` | `60000` | покрывает first-frame + warm-up + capture-only |
+| `operation_deadline_ms` | `600000` | global budget, не короче candidate deadline |
+| `shutdown_deadline_ms` / `reopen_delay_ms` | `3000` / `500` | shutdown не длиннее candidate deadline |
+| `minimum_fps_ratio` | `0.95` | `(0, 1]`; PoC threshold, не production SLA |
+| read/long-gap ratios | `0.01` / `0.01` | `[0, 1]` |
+| `maximum_gap_periods` | `5.0` | finite, `>= 1` |
+
+Requested — tuple из policy; `set` — только boolean diagnostics OpenCV; reported — значения `CAP_PROP_*`; actual — dimensions каждого принятого `Mat`; measured — monotonic capture-only metrics. `set=true` не доказывает режим, `set=false` не проваливает его автоматически. Reported FourCC match не называется native media subtype. Numeric index и `DeviceEndpointKey` эфемерны.
+
+`max_verified_by_resolution` строится только из capture-verified tuples и сохраняет все FourCC ties. `verifiedModeId` process-local и инвалидируется новым accepted scan/profile либо `stop_camera`. Это ещё не preview/recording proof: full-pipeline, writer, runtime и external validation остаются `not_run`.
+
+Profile transport v1: `start_profile`, `get_profile_status`, `get_profile_result`, `cancel_profile`. Дополнительные safe codes: `STALE_DEVICE_ENDPOINT`, `STALE_PROFILE_OPERATION`, `PROFILE_NOT_READY`, `STALE_VERIFIED_MODE`, `MODE_COERCED`, `UNDER_TARGET_FPS`. Cancellation ждёт checked release; `Stuck` требует restart и не выдаётся за cleanup.
+
 ### Opt-in hardware smoke
 
 Hardware smoke не входит в `bun run test`. Сначала явно проверьте, есть ли на host доступная камера, затем укажите соответствующий context и bounded scope:
@@ -100,6 +125,24 @@ Get-PnpDevice -Class Camera -PresentOnly
 
 Для host без present Camera PnP device используйте `--hardware-context camera-less`. Harness выполняет два scan подряд и сохраняет compact schema-versioned evidence с policy, ordered outcomes, generations, release/reopen result и version references. Он не сохраняет frames, secrets или полный environment dump. При `camera-present` отсутствие положительного endpoint в любом из двух run является failing acceptance gate.
 
+### Opt-in mode profile smoke
+
+Команда не входит в `bun run test`. Сначала выполните DSHOW на подтверждённом index, затем отдельной попыткой MSMF. Каждый run использует тот же `CameraService`, полный config, terminal cleanup и повторный bounded scan:
+
+```powershell
+./tools/run-with-opencv.ps1 -- cargo run --locked --bin camera-mode-profile-smoke -- `
+  --backend DSHOW --index 0 `
+  --config config/mode-candidates.json `
+  --evidence evidence/camera-mode-profile-smoke.json
+
+./tools/run-with-opencv.ps1 -- cargo run --locked --bin camera-mode-profile-smoke -- `
+  --backend MSMF --index 0 `
+  --config config/mode-candidates.json `
+  --evidence evidence/camera-mode-profile-smoke-msmf.json
+```
+
+Exit code non-zero означает failing acceptance gate: endpoint не найден, profile не завершился, нет candidate outcomes либо endpoint нельзя открыть повторно после release. Compact JSON содержит policy/hash, ordered outcomes/metrics, release/reopen и version references; frame bytes, secrets и full environment не записываются.
+
 ## Локальное хранение и evidence
 
 - `.tools/vcpkg/` — exact vcpkg checkout; `.tools/msvc-redist/` — выбранные из установленного MSVC Redistributable DLL и notice.
@@ -111,6 +154,7 @@ Get-PnpDevice -Class Camera -PresentOnly
 - `evidence/runtime-imports.json` — release PE import closure.
 - `evidence/bundle-verification.json` — installer/executable hashes и этапы `manifest`, `install`, `headless_self_check`, `module_provenance`, `gui_smoke`, `uninstall`.
 - `evidence/camera-session-smoke.json` — opt-in bounded camera/no-camera outcomes и release/reopen evidence.
+- `evidence/camera-mode-profile-smoke.json` — opt-in DSHOW profile evidence; MSMF attempt хранится отдельно до сведения decision gate.
 - `evidence/artifacts/` — ignored подробные self-check reports; большие installer/AVI не коммитятся.
 
 Обновить и проверить environment evidence:
