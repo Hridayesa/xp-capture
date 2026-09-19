@@ -1,0 +1,1076 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T01:24:28.6334665+00:00",
+  "status": "passed",
+  "executable": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\xp-capture.exe",
+  "stagingRoot": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging",
+  "files": [
+    {
+      "name": "xp-capture.exe",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\xp-capture.exe",
+      "sha256": "2d2d2aa58e403148205005a2096b13d07820bed8a7aa27b92d5188fadc2ca2ff",
+      "imports": [
+        {
+          "name": "advapi32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\advapi32.dll"
+        },
+        {
+          "name": "api-ms-win-core-synch-l1-2-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-locale-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "bcryptprimitives.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\bcryptprimitives.dll"
+        },
+        {
+          "name": "comctl32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\comctl32.dll"
+        },
+        {
+          "name": "dwmapi.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\dwmapi.dll"
+        },
+        {
+          "name": "gdi32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\gdi32.dll"
+        },
+        {
+          "name": "kernel32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\kernel32.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "ntdll.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\ntdll.dll"
+        },
+        {
+          "name": "ole32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\ole32.dll"
+        },
+        {
+          "name": "oleaut32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\oleaut32.dll"
+        },
+        {
+          "name": "opencv_core4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_core4.dll"
+        },
+        {
+          "name": "opencv_imgcodecs4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgcodecs4.dll"
+        },
+        {
+          "name": "opencv_imgproc4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgproc4.dll"
+        },
+        {
+          "name": "opencv_videoio4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_videoio4.dll"
+        },
+        {
+          "name": "shell32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\shell32.dll"
+        },
+        {
+          "name": "shlwapi.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\shlwapi.dll"
+        },
+        {
+          "name": "user32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\user32.dll"
+        }
+      ]
+    },
+    {
+      "name": "avcodec-62.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avcodec-62.dll",
+      "sha256": "0c1f6530a1a681d9fa49542aeef6c256d86b2981144e6b38a6acae608de56a99",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-time-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-utility-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "avutil-60.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "ole32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\ole32.dll"
+        },
+        {
+          "name": "swresample-6.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\swresample-6.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "avformat-62.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avformat-62.dll",
+      "sha256": "28ffff599eb1fa78cf7a355c1f53fea6eee91c20489aa9cddca6a45c271be830",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-environment-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-time-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-utility-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "avcodec-62.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avcodec-62.dll"
+        },
+        {
+          "name": "avutil-60.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll"
+        },
+        {
+          "name": "CRYPT32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\CRYPT32.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "ncrypt.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\ncrypt.dll"
+        },
+        {
+          "name": "Secur32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\Secur32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        },
+        {
+          "name": "WS2_32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\WS2_32.dll"
+        }
+      ]
+    },
+    {
+      "name": "avutil-60.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll",
+      "sha256": "a24bd7a866f0a0a95c9067d24d106a0bef849b92a8188f2f3495e6213390d5db",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-environment-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-time-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-utility-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "bcrypt.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\bcrypt.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "USER32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\USER32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "CONCRT140.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\CONCRT140.dll",
+      "sha256": "8bf82e025265d30fb25fda7161f8e8d73b96f83fde10f95b0fc4887bd6b09b5e",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "jpeg62.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\jpeg62.dll",
+      "sha256": "9f1b499bf52ac6bdda31b880ff3b1f5e82ee9fd04e1f2ab802732d3095b31e95",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-environment-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "MSVCP140.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll",
+      "sha256": "8f141b4454fa78db34bc1f28c571b4da0e00cd2c43f7ad0e282f313036826aae",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-environment-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-locale-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-time-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-utility-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "opencv_core4.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_core4.dll",
+      "sha256": "3ff7f7f2ad7c5f6d4326cac6a0be3d48dd9ed494fad59433f581bafe164cf540",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-environment-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "CONCRT140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\CONCRT140.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        },
+        {
+          "name": "z.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\z.dll"
+        }
+      ]
+    },
+    {
+      "name": "opencv_imgcodecs4.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgcodecs4.dll",
+      "sha256": "bb5198a3544b16c3a8f65f68745559ccfc6c373639a1b0ddec2c1a00b3f06bdb",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "jpeg62.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\jpeg62.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "opencv_core4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_core4.dll"
+        },
+        {
+          "name": "opencv_imgproc4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgproc4.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "opencv_imgproc4.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgproc4.dll",
+      "sha256": "61e7149513cce0d39e24efcc7ba4fb4b95b86ec1c1c5aa2599d17da2be148641",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "opencv_core4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_core4.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "opencv_videoio4.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_videoio4.dll",
+      "sha256": "447a1335e52fd743adc7f6bc35f4b7b1ba66d120b88ee440f28780e02d47efca",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-filesystem-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "avcodec-62.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avcodec-62.dll"
+        },
+        {
+          "name": "avformat-62.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avformat-62.dll"
+        },
+        {
+          "name": "avutil-60.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll"
+        },
+        {
+          "name": "d3d11.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\d3d11.dll"
+        },
+        {
+          "name": "dxgi.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\dxgi.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "MF.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\MF.dll"
+        },
+        {
+          "name": "MFPlat.DLL",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\MFPlat.DLL"
+        },
+        {
+          "name": "MFReadWrite.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\MFReadWrite.dll"
+        },
+        {
+          "name": "MSVCP140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\MSVCP140.dll"
+        },
+        {
+          "name": "ole32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\ole32.dll"
+        },
+        {
+          "name": "OLEAUT32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\OLEAUT32.dll"
+        },
+        {
+          "name": "opencv_core4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_core4.dll"
+        },
+        {
+          "name": "opencv_imgcodecs4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgcodecs4.dll"
+        },
+        {
+          "name": "opencv_imgproc4.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\opencv_imgproc4.dll"
+        },
+        {
+          "name": "SHLWAPI.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\SHLWAPI.dll"
+        },
+        {
+          "name": "swscale-9.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\swscale-9.dll"
+        },
+        {
+          "name": "VCRUNTIME140_1.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "swresample-6.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\swresample-6.dll",
+      "sha256": "3c91c861712c9b2e5ceaab9abf87a937ce6849b5f55234c8b6ee6d87183e403f",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "avutil-60.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "swscale-9.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\swscale-9.dll",
+      "sha256": "1c5cd0f72c44a3fbb8da4bb0f4b4f2df6a6937868b49555391bad8217a9d3cd2",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-math-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-utility-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "avutil-60.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\avutil-60.dll"
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "VCRUNTIME140_1.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140_1.dll",
+      "sha256": "963e45edd064545962e216c12d68071ced94dc8e11862a18f07f14eb2690a57c",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    },
+    {
+      "name": "VCRUNTIME140.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll",
+      "sha256": "0205071c36c17f1efbd70178c852cb7d49985c484202752b8704b7ac6b184e60",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        }
+      ]
+    },
+    {
+      "name": "z.dll",
+      "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\z.dll",
+      "sha256": "a756156b8f08c83d064e8448d0fa149519964d8b381e7587280cd6b97faecd4b",
+      "imports": [
+        {
+          "name": "api-ms-win-crt-convert-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-heap-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-runtime-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-stdio-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "api-ms-win-crt-string-l1-1-0.dll",
+          "origin": "windows_api_set",
+          "path": null
+        },
+        {
+          "name": "KERNEL32.dll",
+          "origin": "windows_system32",
+          "path": "C:\\WINDOWS\\System32\\KERNEL32.dll"
+        },
+        {
+          "name": "VCRUNTIME140.dll",
+          "origin": "staging",
+          "path": "C:\\Work\\js\\xp\\xp-capture\\runtime\\staging\\VCRUNTIME140.dll"
+        }
+      ]
+    }
+  ]
+}

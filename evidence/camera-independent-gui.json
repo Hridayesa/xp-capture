@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T00:40:28.508Z",
+  "cameraIndependent": true,
+  "checks": {
+    "guiStartup": {
+      "status": "passed",
+      "command": "bun run app:dev",
+      "evidence": "target/debug/xp-capture.exe reached the running state before controlled Ctrl+C shutdown"
+    },
+    "diagnosticService": {
+      "status": "passed",
+      "command": "cargo test --workspace --locked --test headless_cli",
+      "evidence": "installed-like staged runtime returned exit code 0 and wrote a successful self-check report"
+    },
+    "uiCommandContract": {
+      "status": "passed",
+      "command": "bun run test:unit",
+      "evidence": "component tests cover run_self_check success, native error, responsive loading and retry"
+    },
+    "cameraPermission": {
+      "status": "passed",
+      "evidence": "diagnostics capability permissions are empty; no camera API or camera-device VideoCapture call exists"
+    }
+  },
+  "notes": [
+    "The runtime check uses VideoCapture::from_file only for rereading its synthetic temporary AVI.",
+    "Native window automation was unavailable in this session; the GUI process startup and command/UI contracts were verified separately."
+  ]
+}

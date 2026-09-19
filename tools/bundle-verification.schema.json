@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://xp-capture.local/schemas/bundle-verification.schema.json",
+  "title": "XP Capture installed bundle verification evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "generatedAtUtc", "status", "installer", "installation", "stages", "loadedModules"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "generatedAtUtc": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.*(?:Z|[+-][0-9]{2}:[0-9]{2})$" },
+    "status": { "enum": ["passed", "failed"] },
+    "installer": { "$ref": "#/$defs/artifact" },
+    "installation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "executable", "executableSha256", "selfCheckReport"],
+      "properties": {
+        "root": { "type": ["string", "null"] },
+        "executable": { "type": ["string", "null"] },
+        "executableSha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "selfCheckReport": { "type": ["string", "null"] }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": { "$ref": "#/$defs/stage" }
+    },
+    "loadedModules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "path", "sha256"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.dll$" },
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "size", "sha256"],
+      "properties": {
+        "path": { "type": "string" },
+        "size": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "stage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status", "exitCode", "summary"],
+      "properties": {
+        "name": { "enum": ["manifest", "install", "headless_self_check", "module_provenance", "gui_smoke", "uninstall"] },
+        "status": { "enum": ["passed", "failed", "skipped"] },
+        "exitCode": { "type": ["integer", "null"] },
+        "summary": { "type": "string", "minLength": 1, "maxLength": 300 }
+      }
+    }
+  }
+}

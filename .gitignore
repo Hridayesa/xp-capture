@@ -1,0 +1,12 @@
+/node_modules/
+/dist/
+/target/
+/.tmp/
+/.tools/
+/.vcpkg_installed/
+/src-tauri/gen/
+/runtime/staging/
+/runtime/diagnostics/
+/runtime/verification/
+/evidence/artifacts/
+/evidence/installers/

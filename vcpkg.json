@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "xp-capture-native",
+  "version-string": "0.1.0",
+  "dependencies": [
+    {
+      "name": "opencv4",
+      "default-features": false,
+      "features": ["dshow", "ffmpeg", "jpeg", "msmf", "thread"]
+    }
+  ],
+  "overrides": [
+    {
+      "name": "opencv4",
+      "version": "4.12.0",
+      "port-version": 7
+    }
+  ]
+}

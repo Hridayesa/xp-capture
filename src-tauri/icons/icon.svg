@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="XP Capture">
+  <rect width="512" height="512" rx="112" fill="#17202a" />
+  <circle cx="256" cy="256" r="136" fill="none" stroke="#5eead4" stroke-width="40" />
+  <circle cx="256" cy="256" r="48" fill="#f6f8fa" />
+  <path d="M256 72v64M440 256h-64M256 440v-64M72 256h64" stroke="#f6f8fa" stroke-width="24" stroke-linecap="round" />
+</svg>

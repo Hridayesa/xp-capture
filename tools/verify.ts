@@ -44,15 +44,22 @@ failures += gaps.length;
 await run("openspec", [bun, "run", "tools/openspec.ts", "validate", "--all", "--strict", "--no-interactive"]);
 
 if (hasCargoManifest && Bun.which("cargo")) {
-  await run("rustfmt", ["cargo", "fmt", "--all", "--", "--check"]);
-  await run("clippy", ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"]);
-  if (full) await run("rust-tests", ["cargo", "test", "--workspace", "--all-features"]);
+  if (typeof scripts["test:rust"] === "string") {
+    await run("rust:project", [bun, "run", "test:rust"]);
+  } else {
+    await run("rustfmt", ["cargo", "fmt", "--all", "--", "--check"]);
+    await run("clippy", ["cargo", "clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"]);
+    if (full) await run("rust-tests", ["cargo", "test", "--workspace", "--all-features"]);
+  }
 }
 
 if (hasPackageManifest) {
   const testScript = typeof scripts["test:unit"] === "string" ? "test:unit" : "test";
   const names = full ? ["typecheck", "lint", testScript, "build"] : ["typecheck", "lint"];
   for (const name of names) if (typeof scripts[name] === "string") await run(`frontend:${name}`, ["bun", "run", name]);
+  if (full && typeof scripts["test:runtime-supply"] === "string") {
+    await run("runtime-supply", [bun, "run", "test:runtime-supply"]);
+  }
 }
 
 if (full && hasCargoManifest) {

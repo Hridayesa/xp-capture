@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T01:22:49.2402188Z",
+  "vcpkgRevision": "9e593bb18ea69cc5095e012465dcd675a822ed0d",
+  "triplet": "x64-windows",
+  "files": [
+    {
+      "name": "avcodec-62.dll",
+      "sha256": "0c1f6530a1a681d9fa49542aeef6c256d86b2981144e6b38a6acae608de56a99",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/avcodec-62.dll",
+      "bundleDestination": "avcodec-62.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/ffmpeg/copyright"
+    },
+    {
+      "name": "avformat-62.dll",
+      "sha256": "28ffff599eb1fa78cf7a355c1f53fea6eee91c20489aa9cddca6a45c271be830",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/avformat-62.dll",
+      "bundleDestination": "avformat-62.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/ffmpeg/copyright"
+    },
+    {
+      "name": "avutil-60.dll",
+      "sha256": "a24bd7a866f0a0a95c9067d24d106a0bef849b92a8188f2f3495e6213390d5db",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/avutil-60.dll",
+      "bundleDestination": "avutil-60.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/ffmpeg/copyright"
+    },
+    {
+      "name": "CONCRT140.dll",
+      "sha256": "8bf82e025265d30fb25fda7161f8e8d73b96f83fde10f95b0fc4887bd6b09b5e",
+      "architecture": "x64",
+      "source": ".tools/msvc-redist/14.44.35112/x64/Microsoft.VC143.CRT/CONCRT140.dll",
+      "bundleDestination": "CONCRT140.dll",
+      "purpose": "transitive",
+      "licenseNoticePath": ".tools/msvc-redist/14.44.35112/Redist.txt"
+    },
+    {
+      "name": "jpeg62.dll",
+      "sha256": "9f1b499bf52ac6bdda31b880ff3b1f5e82ee9fd04e1f2ab802732d3095b31e95",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/jpeg62.dll",
+      "bundleDestination": "jpeg62.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/libjpeg-turbo/copyright"
+    },
+    {
+      "name": "MSVCP140.dll",
+      "sha256": "8f141b4454fa78db34bc1f28c571b4da0e00cd2c43f7ad0e282f313036826aae",
+      "architecture": "x64",
+      "source": ".tools/msvc-redist/14.44.35112/x64/Microsoft.VC143.CRT/MSVCP140.dll",
+      "bundleDestination": "MSVCP140.dll",
+      "purpose": "transitive",
+      "licenseNoticePath": ".tools/msvc-redist/14.44.35112/Redist.txt"
+    },
+    {
+      "name": "opencv_core4.dll",
+      "sha256": "3ff7f7f2ad7c5f6d4326cac6a0be3d48dd9ed494fad59433f581bafe164cf540",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/opencv_core4.dll",
+      "bundleDestination": "opencv_core4.dll",
+      "purpose": "opencv",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/opencv4/copyright"
+    },
+    {
+      "name": "opencv_imgcodecs4.dll",
+      "sha256": "bb5198a3544b16c3a8f65f68745559ccfc6c373639a1b0ddec2c1a00b3f06bdb",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/opencv_imgcodecs4.dll",
+      "bundleDestination": "opencv_imgcodecs4.dll",
+      "purpose": "opencv",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/opencv4/copyright"
+    },
+    {
+      "name": "opencv_imgproc4.dll",
+      "sha256": "61e7149513cce0d39e24efcc7ba4fb4b95b86ec1c1c5aa2599d17da2be148641",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/opencv_imgproc4.dll",
+      "bundleDestination": "opencv_imgproc4.dll",
+      "purpose": "opencv",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/opencv4/copyright"
+    },
+    {
+      "name": "opencv_videoio4.dll",
+      "sha256": "447a1335e52fd743adc7f6bc35f4b7b1ba66d120b88ee440f28780e02d47efca",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/opencv_videoio4.dll",
+      "bundleDestination": "opencv_videoio4.dll",
+      "purpose": "opencv",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/opencv4/copyright"
+    },
+    {
+      "name": "swresample-6.dll",
+      "sha256": "3c91c861712c9b2e5ceaab9abf87a937ce6849b5f55234c8b6ee6d87183e403f",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/swresample-6.dll",
+      "bundleDestination": "swresample-6.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/ffmpeg/copyright"
+    },
+    {
+      "name": "swscale-9.dll",
+      "sha256": "1c5cd0f72c44a3fbb8da4bb0f4b4f2df6a6937868b49555391bad8217a9d3cd2",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/swscale-9.dll",
+      "bundleDestination": "swscale-9.dll",
+      "purpose": "codec",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/ffmpeg/copyright"
+    },
+    {
+      "name": "VCRUNTIME140_1.dll",
+      "sha256": "963e45edd064545962e216c12d68071ced94dc8e11862a18f07f14eb2690a57c",
+      "architecture": "x64",
+      "source": ".tools/msvc-redist/14.44.35112/x64/Microsoft.VC143.CRT/VCRUNTIME140_1.dll",
+      "bundleDestination": "VCRUNTIME140_1.dll",
+      "purpose": "transitive",
+      "licenseNoticePath": ".tools/msvc-redist/14.44.35112/Redist.txt"
+    },
+    {
+      "name": "VCRUNTIME140.dll",
+      "sha256": "0205071c36c17f1efbd70178c852cb7d49985c484202752b8704b7ac6b184e60",
+      "architecture": "x64",
+      "source": ".tools/msvc-redist/14.44.35112/x64/Microsoft.VC143.CRT/VCRUNTIME140.dll",
+      "bundleDestination": "VCRUNTIME140.dll",
+      "purpose": "transitive",
+      "licenseNoticePath": ".tools/msvc-redist/14.44.35112/Redist.txt"
+    },
+    {
+      "name": "z.dll",
+      "sha256": "a756156b8f08c83d064e8448d0fa149519964d8b381e7587280cd6b97faecd4b",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/z.dll",
+      "bundleDestination": "z.dll",
+      "purpose": "transitive",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/zlib/copyright"
+    }
+  ]
+}

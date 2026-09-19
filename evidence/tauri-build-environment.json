@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUnixSeconds": 1789781009,
+  "target": "x86_64-pc-windows-msvc",
+  "tauriCrate": "2.11.5",
+  "tauriCli": "2.11.4",
+  "staticVcruntime": true
+}

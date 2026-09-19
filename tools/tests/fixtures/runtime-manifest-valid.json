@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T00:00:00Z",
+  "vcpkgRevision": "9e593bb18ea69cc5095e012465dcd675a822ed0d",
+  "triplet": "x64-windows",
+  "files": [
+    {
+      "name": "opencv_core4120.dll",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "architecture": "x64",
+      "source": ".vcpkg_installed/x64-windows/bin/opencv_core4120.dll",
+      "bundleDestination": "opencv_core4120.dll",
+      "purpose": "opencv",
+      "licenseNoticePath": ".vcpkg_installed/x64-windows/share/opencv4/copyright"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T01:25:56.5391814+00:00",
+  "repositoryCommit": "f6dca3464dd909c013695f5009f1bfbeac881501",
+  "host": {
+    "windowsVersion": "10.0.26200.0",
+    "architecture": "X64",
+    "powershell": "7.6.6",
+    "msvc": "14.44.35207",
+    "windowsSdk": "10.0.22000.0",
+    "cmake": "3.29.2",
+    "ninja": "1.12.0"
+  },
+  "application": {
+    "rust": "1.98.1",
+    "bun": "1.4.2",
+    "tauriCrate": "2.11.5",
+    "tauriBuild": "2.6.3",
+    "tauriCli": "2.11.4",
+    "tauriApi": "2.11.1",
+    "opencvCrate": "0.100.1"
+  },
+  "nativeSupply": {
+    "vcpkgRevision": "9e593bb18ea69cc5095e012465dcd675a822ed0d",
+    "triplet": "x64-windows",
+    "opencvVersion": "4.12.0",
+    "opencvPortVersion": 7,
+    "opencvFeatures": [
+      "dshow",
+      "ffmpeg",
+      "jpeg",
+      "msmf",
+      "thread"
+    ],
+    "msvcRedistributable": "14.44.35112"
+  },
+  "runtimeManifest": {
+    "sha256": "fa52cea919bef745fe7e9cb3891a0ed240d72bbe336687e83cbbeef5d0da970a",
+    "fileCount": 15
+  }
+}

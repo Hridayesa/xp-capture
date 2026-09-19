@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-09-19T01:25:39.9322488+00:00",
+  "status": "passed",
+  "installer": {
+    "path": "C:\\Work\\js\\xp\\xp-capture\\target\\release\\bundle\\nsis\\XP Capture_0.1.0_x64-setup.exe",
+    "size": 225222086,
+    "sha256": "e8b3ee145afc42beb634d69e2dd867a78f3c8991a034eb02ec21a4c6ecaa9898"
+  },
+  "installation": {
+    "root": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283",
+    "executable": "C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\xp-capture.exe",
+    "executableSha256": "7c3391d397427c38a752ef64e2e8d77ffcc16ea2e3a64ca69300d3535ae98d1b",
+    "selfCheckReport": "C:\\Work\\js\\xp\\xp-capture\\evidence\\artifacts\\self-check-22e8912b424744f8a62678fcb23bc283.json"
+  },
+  "stages": [
+    {
+      "name": "manifest",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "Installer metadata and 15 manifest entries passed schema, hash, x64, and license validation."
+    },
+    {
+      "name": "install",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "Current-user NSIS install produced one executable and exact manifest-listed runtime payload."
+    },
+    {
+      "name": "headless_self_check",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "Installed headless self-check passed with system-only PATH and no OPENCV_*/VCPKG_* variables."
+    },
+    {
+      "name": "module_provenance",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "All loaded native runtime modules match installed paths and manifest hashes."
+    },
+    {
+      "name": "gui_smoke",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "Installed GUI exposed a main window and completed controlled CloseMainWindow shutdown."
+    },
+    {
+      "name": "uninstall",
+      "status": "passed",
+      "exitCode": 0,
+      "summary": "NSIS uninstall completed and removed the installed executable."
+    }
+  ],
+  "loadedModules": [
+    {
+      "name": "CONCRT140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\CONCRT140.dll",
+      "sha256": "8bf82e025265d30fb25fda7161f8e8d73b96f83fde10f95b0fc4887bd6b09b5e"
+    },
+    {
+      "name": "MSVCP140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\MSVCP140.dll",
+      "sha256": "8f141b4454fa78db34bc1f28c571b4da0e00cd2c43f7ad0e282f313036826aae"
+    },
+    {
+      "name": "VCRUNTIME140.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\VCRUNTIME140.dll",
+      "sha256": "0205071c36c17f1efbd70178c852cb7d49985c484202752b8704b7ac6b184e60"
+    },
+    {
+      "name": "VCRUNTIME140_1.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\VCRUNTIME140_1.dll",
+      "sha256": "963e45edd064545962e216c12d68071ced94dc8e11862a18f07f14eb2690a57c"
+    },
+    {
+      "name": "avcodec-62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\avcodec-62.dll",
+      "sha256": "0c1f6530a1a681d9fa49542aeef6c256d86b2981144e6b38a6acae608de56a99"
+    },
+    {
+      "name": "avformat-62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\avformat-62.dll",
+      "sha256": "28ffff599eb1fa78cf7a355c1f53fea6eee91c20489aa9cddca6a45c271be830"
+    },
+    {
+      "name": "avutil-60.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\avutil-60.dll",
+      "sha256": "a24bd7a866f0a0a95c9067d24d106a0bef849b92a8188f2f3495e6213390d5db"
+    },
+    {
+      "name": "jpeg62.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\jpeg62.dll",
+      "sha256": "9f1b499bf52ac6bdda31b880ff3b1f5e82ee9fd04e1f2ab802732d3095b31e95"
+    },
+    {
+      "name": "opencv_core4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\opencv_core4.dll",
+      "sha256": "3ff7f7f2ad7c5f6d4326cac6a0be3d48dd9ed494fad59433f581bafe164cf540"
+    },
+    {
+      "name": "opencv_imgcodecs4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\opencv_imgcodecs4.dll",
+      "sha256": "bb5198a3544b16c3a8f65f68745559ccfc6c373639a1b0ddec2c1a00b3f06bdb"
+    },
+    {
+      "name": "opencv_imgproc4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\opencv_imgproc4.dll",
+      "sha256": "61e7149513cce0d39e24efcc7ba4fb4b95b86ec1c1c5aa2599d17da2be148641"
+    },
+    {
+      "name": "opencv_videoio4.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\opencv_videoio4.dll",
+      "sha256": "447a1335e52fd743adc7f6bc35f4b7b1ba66d120b88ee440f28780e02d47efca"
+    },
+    {
+      "name": "swresample-6.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\swresample-6.dll",
+      "sha256": "3c91c861712c9b2e5ceaab9abf87a937ce6849b5f55234c8b6ee6d87183e403f"
+    },
+    {
+      "name": "swscale-9.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\swscale-9.dll",
+      "sha256": "1c5cd0f72c44a3fbb8da4bb0f4b4f2df6a6937868b49555391bad8217a9d3cd2"
+    },
+    {
+      "name": "z.dll",
+      "path": "\\\\?\\C:\\Work\\js\\xp\\xp-capture\\runtime\\verification\\22e8912b424744f8a62678fcb23bc283\\z.dll",
+      "sha256": "a756156b8f08c83d064e8448d0fa149519964d8b381e7587280cd6b97faecd4b"
+    }
+  ]
+}

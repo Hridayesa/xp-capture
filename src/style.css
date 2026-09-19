@@ -1,0 +1,168 @@
+:root {
+  color: #17202a;
+  background: #f3f6f8;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border: 0;
+  border-radius: 0.6rem;
+  padding: 0.75rem 1.1rem;
+  color: white;
+  background: #1261a0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #7cc4ff;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+main {
+  width: min(52rem, 100%);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 6vw, 4rem) clamp(1rem, 5vw, 2rem);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: #52616b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro,
+.empty,
+.version {
+  color: #52616b;
+}
+
+.diagnostics {
+  margin-top: 2.5rem;
+  border: 1px solid #d7e0e7;
+  border-radius: 1rem;
+  padding: clamp(1rem, 4vw, 1.5rem);
+  background: white;
+  box-shadow: 0 0.6rem 2rem rgb(35 55 70 / 8%);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading h2 {
+  margin-bottom: 0.25rem;
+}
+
+.loading,
+.error,
+.empty {
+  margin: 1.5rem 0 0;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  background: #eef5fb;
+}
+
+.error {
+  display: grid;
+  gap: 0.3rem;
+  color: #78251d;
+  background: #fff0ee;
+}
+
+.check-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid #e2e8ed;
+  border-radius: 0.7rem;
+  padding: 0.9rem 1rem;
+}
+
+.check-list p {
+  margin: 0.35rem 0 0;
+  color: #52616b;
+}
+
+.status {
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.status-passed {
+  color: #176134;
+  background: #dcf5e5;
+}
+
+.status-failed {
+  color: #8a251d;
+  background: #ffe3df;
+}
+
+.status-skipped {
+  color: #5e4a11;
+  background: #fff2c7;
+}
+
+@media (max-width: 34rem) {
+  .section-heading,
+  .check-list li {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .status {
+    align-self: flex-start;
+  }
+}
